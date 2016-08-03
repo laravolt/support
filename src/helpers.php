@@ -23,6 +23,17 @@ if (!function_exists('sui_pagination')) {
     }
 }
 
+if (!function_exists('sui_breadcrumb')) {
+
+    /**
+     * @return \Illuminate\Foundation\Application|mixed
+     */
+    function sui_breadcrumb()
+    {
+        return app(Laravolt\Support\Contracts\Breadcrumb::class);
+    }
+}
+
 if (!function_exists('render')) {
 
     /**

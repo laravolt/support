@@ -21,6 +21,7 @@ class SupportServiceProvider extends ServiceProvider {
         $this->registerBladeExtensions();
         $this->registerTranslations();
         $this->registerConfigurations();
+        $this->loadViewsFrom(realpath(__DIR__.'/../resources/views'), 'support');
     }
 
     /**
@@ -32,6 +33,9 @@ class SupportServiceProvider extends ServiceProvider {
     {
         // timezone
         $this->app->bind(Contracts\TimezoneRepository::class, Repositories\TimezoneRepositoryArray::class);
+
+        // breadcrumb
+        $this->app->bind(Contracts\Breadcrumb::class, Breadcrumb\SemanticUIBreadcrumb::class);
     }
 
     /**
